@@ -1,3 +1,4 @@
+/* 1. CSS VARIABLES - Centralized colors for easy changes */
 :root {
     --clr-bg: #141414;
     --clr-card: #1f1f1f;
@@ -7,6 +8,7 @@
     --clr-text-muted: lightgray;
 }
 
+/* 2. GLOBAL STYLES & LAYOUT */
 body {
     background-color: var(--clr-bg);   
     display: flex;
@@ -18,30 +20,61 @@ body {
     color: var(--clr-text-main);
 }
 
+/* 3. MAIN CARD CONTAINER */
 main.mainBox {
     background-color: var(--clr-card);
     inline-size: 90%; 
-    max-inline-size: 24.375rem; 
-    /* Responsive padding for the card container */
+    max-inline-size: 24.375rem; /* 390px */
+    
+    /* Fluid padding that shrinks on small mobile screens */
     padding: clamp(1.5rem, 8vw, 2.5rem); 
+    
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    align-items: stretch; 
+    align-items: stretch; /* Makes buttons fill the width */
     text-align: center;
 }
 
+/* 4. PROFILE IMAGE */
+img.pfp {
+    height: 5.3125rem;
+    inline-size: 5.3125rem;
+    border-radius: 50%;
+    margin-block-end: clamp(1rem, 3vh, 1.5rem);
+    align-self: center; /* Keeps image centered while others stretch */
+}
+
+/* 5. TEXT CONTENT */
+.User {
+    margin: 0;
+    /* Fluid font-size for better mobile display */
+    font-size: clamp(1.25rem, 5vw, 1.5rem); 
+}
+
+.Description {
+    color: var(--clr-text-accent);
+    /* Logical margin: top / bottom */
+    margin-block: clamp(0.25rem, 1vh, 0.5rem) clamp(1rem, 3vh, 1.5rem);
+    font-weight: bold;
+}
+
+.about {
+    color: var(--clr-text-muted);
+    margin-block-end: clamp(1rem, 3vh, 1.5rem);
+    font-size: 0.875rem;
+}
+
+/* 6. BUTTON STYLES */
 .button {
     background-color: var(--clr-button);
     border-radius: 8px;
-    /* Responsive margin between buttons */
     margin-block-end: clamp(0.5rem, 2vh, 1rem); 
-    transition: background-color 0.2s ease; /* Smooth color transition */
 }
 
 .button a {
     display: block;
-    /* SWAP: Added clamp here to make button height responsive */
+    /* Fluid vertical padding, fixed horizontal */
     padding: clamp(0.75rem, 2vh, 1rem) 1rem; 
     color: var(--clr-text-main);
     text-decoration: none;
@@ -53,28 +86,10 @@ main.mainBox {
     color: var(--clr-bg); 
 }
 
-img.pfp {
-    height: 5.3125rem;
-    inline-size: 5.3125rem;
-    border-radius: 50%;
-    /* Logical property for spacing under image */
-    margin-block-end: clamp(1rem, 3vh, 1.5rem); 
-}
-
-.User {
-    margin: 0;
-    font-size: 1.5rem;
-}
-
-.Description {
-    color: var(--clr-text-accent);
-    /* Responsive top/bottom margins */
-    margin-block: clamp(0.25rem, 1vh, 0.5rem) clamp(1rem, 3vh, 1.5rem);
-    font-weight: bold;
-}
-
-.about {
-    color: var(--clr-text-muted);
-    margin-block-end: clamp(1rem, 3vh, 1.5rem);
-    font-size: 0.875rem;
+/* 7. ACCESSIBILITY: REDUCED MOTION */
+/* Only adds the transition if the user's OS settings allow it */
+@media (prefers-reduced-motion: no-preference) {
+    .button {
+        transition: background-color 0.2s ease;
+    }
 }
