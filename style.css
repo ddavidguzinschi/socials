@@ -6,6 +6,7 @@
     --clr-text-accent: #97aa59;
     --clr-text-muted: lightgray;
 }
+
 body {
     background-color: var(--clr-bg);   
     display: flex;
@@ -18,47 +19,48 @@ body {
 }
 
 main.mainBox {
-    background-color: #1f1f1f;
+    background-color: var(--clr-card); /* Fixed: now using variable */
     inline-size: 90%; 
-    max-inline-size: 24.375rem; /* 390px */
-    padding: 2.5rem;
-    border-radius: 12px;
+    max-inline-size: 24.375rem; 
     
-    /* This is the key to big buttons */
+    /* Fixed: Using clamp for responsive padding to satisfy "CSS functions" warning */
+    padding: clamp(1.5rem, 8vw, 2.5rem); 
+    
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
-    /* 'stretch' makes children fill the full width of the padding area */
     align-items: stretch; 
     text-align: center;
 }
 
 .button {
-    background-color: #333333;
+    background-color: var(--clr-button); /* Fixed: now using variable */
     border-radius: 8px;
-    margin-bottom: 1rem;
-    /* Remove any fixed widths here so it can stretch */
+    
+    /* Fixed: Using margin-block-end for "Logical Properties" warning */
+    margin-block-end: 1rem; 
 }
 
 .button a {
     display: block;
-    /* This padding makes the button 'thick' */
     padding: 1rem; 
-    color: white;
+    color: var(--clr-text-main); /* Fixed: now using variable */
     text-decoration: none;
     font-weight: bold;
 }
 
 .button:hover {
     background-color: var(--clr-text-accent);
-    color: var(--clr-bg); /* Optional: flip colors on hover */
+    color: var(--clr-bg); 
 }
 
-/* Updated Image Styles */
 img.pfp {
     height: 5.3125rem;
     inline-size: 5.3125rem;
     border-radius: 50%;
-    margin-bottom: 1.5rem;
+    
+    /* Fixed: changed to margin-block-end */
+    margin-block-end: 1.5rem; 
 }
 
 .User {
@@ -68,12 +70,14 @@ img.pfp {
 
 .Description {
     color: var(--clr-text-accent);
+    /* margin-block handles both top and bottom in one logical property */
     margin-block: 0.5rem 1.5rem;
     font-weight: bold;
 }
 
 .about {
     color: var(--clr-text-muted);
-    margin-bottom: 1.5rem;
+    /* Fixed: changed to margin-block-end */
+    margin-block-end: 1.5rem;
     font-size: 0.875rem;
 }
