@@ -1,0 +1,58 @@
+body {
+    background-color: #141414;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: whitesmoke;
+}
+div.mainBox {
+    background-color: #1f1f1f;
+    width: 390px;
+    height: 550px;
+    border-radius: 8px;
+}
+div.button {
+    background-color: #333333;
+    border-radius: 5px;
+    width: 290px;
+    height: 43px;
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.about {
+margin-left: 60px;
+color: lightgray;
+}
+
+div.pfp {
+margin-top: 15px;
+height: 100px;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+img.pfp {
+    height: 85px;
+    width: 85px;
+    border-radius: 99px;
+    top: 12px;
+    position: relative;
+}
+.User {
+    margin-left: 110px;
+    margin-bottom: 0;
+}
+.Description {
+    color: #97aa59;
+    margin-left: 117px;
+    margin-top: 5px;
+}
