@@ -17,26 +17,33 @@ body {
     color: var(--clr-text-main);
 }
 
-main.mainBox { /* Changed from div to main to match your HTML */
-    background-color: var(--clr-card);
-    inline-size: 90%; /* Responsive width */
-    max-inline-size: 24.375rem; /* 390px capped */
-    padding: 2.5rem; /* Added padding instead of fixed height */
-    border-radius: 0.5rem;
-    text-align: center; /* This centers all your text and images automatically */
+main.mainBox {
+    background-color: #1f1f1f;
+    inline-size: 90%; 
+    max-inline-size: 24.375rem; /* 390px */
+    padding: 2.5rem;
+    border-radius: 12px;
+    
+    /* This is the key to big buttons */
+    display: flex;
+    flex-direction: column;
+    /* 'stretch' makes children fill the full width of the padding area */
+    align-items: stretch; 
+    text-align: center;
 }
 
 .button {
-    background-color: var(--clr-button);
-    border-radius: 0.3125rem;
-    margin-block-end: 0.9375rem; /* Space between buttons */
-    transition: background-color 0.3s;
+    background-color: #333333;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    /* Remove any fixed widths here so it can stretch */
 }
 
 .button a {
     display: block;
-    padding: 0.75rem;
-    color: var(--clr-text-main);
+    /* This padding makes the button 'thick' */
+    padding: 1rem; 
+    color: white;
     text-decoration: none;
     font-weight: bold;
 }
