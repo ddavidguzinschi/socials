@@ -38,7 +38,7 @@ main.mainBox {
     border-radius: 8px;
     
     /* Fixed: Using margin-block-end for "Logical Properties" warning */
-    margin-block-end: 1rem; 
+    margin-block-end: clamp(0.5rem, 2vh, 1rem); 
 }
 
 .button a {
